@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Godina studija: {{korisnik[0][4]}}</h1>
+
+        <table border="1" style="border-collapse: collapse;">
+            <tr>
+                <th>ID</th>
+                <th>Usernmae</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>JMBG</th>
+            </tr>
+            {% for k in korisnik %}
+                <tr>
+                    <td>{{k[0]}}</td>
+                    <td>{{k[1]}}</td>
+                    <td>{{k[2]}}</td>
+                    <td>{{k[3]}}</td>
+                    <td>{{k[5]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+</body>
+</html>

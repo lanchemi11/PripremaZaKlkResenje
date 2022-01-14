@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Show all</h1>
+    {% if 'username' in session %}
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    {% endif %}
+
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Godina studija</th>
+            <th>JMBG</th>
+            {% if 'username' in session %}
+            <th>Delete</th>
+            <th>Update</th>
+            {% endif %}
+        </tr>
+        {% for i in rezultat %}
+           <tr>
+               <td>{{i[0]}}</td>
+               <td>{{i[1]}}</td>
+               <td>{{i[2]}}</td>
+               <td>{{i[3]}}</td>
+               <td>{{i[4]}}</td>
+               <td>{{i[5]}}</td>
+               <td>
+                     {% if 'username' in session %}
+                    <form action="/delete/{{i[1]}}">
+                        <input type="submit" value="Delete">
+                    </form>
+               </td>
+               <td>
+                    <form action="/update/{{i[1]}}" method="POST">
+                        <a href="/update/{{i[1]}}">Update</a>
+                    </form>
+               </td>
+               {% endif %}
+
+                
+           </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

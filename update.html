@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Izmeni korisnika</h1>
+    {{korisnik}}
+    <form action="/update/{{korisnik[1]}}" method="POST">
+        <p>
+            <label for="username">Username</label>
+            <input type="text" name="username" value="{{korisnik[1]}}" readonly>
+            <span>{{username_greska}}</span>
+        </p>
+
+        <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" value="{{korisnik[2]}}">
+        </p>
+
+        <p>
+            <label for="password">Password</label>
+            <input type="password" name="password">
+        </p>
+
+        <p>
+            <label for="confirm">Confirm password</label>
+            <input type="password" name="confirm">
+            <span>{{pass_greska}}</span>
+        </p>
+
+        <p>
+            <label for="godina_studija">Godina studija</label>
+            <input type="radio" name="godina_studija" value="1">1
+            <input type="radio" name="godina_studija" value="2">2
+            <input type="radio" name="godina_studija" value="3">3
+            <input type="radio" name="godina_studija" value="4">4
+        </p>
+
+        <p>
+            <label for="jmbg">JMBG</label>
+            <input type="text" name="jmbg" value="{{korisnik[5]}}" readonly>
+            <span>{{jmbg_greska}}</span>
+        </p>
+
+        <p>
+            <input type="submit" value="Update">
+        </p>
+    </form>
+    
+</body>
+</html>
